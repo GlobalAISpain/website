@@ -1,0 +1,260 @@
+---
+layout: default
+title: "Global AI Spain - Comunidad de IA de Microsoft en España"
+description: "La comunidad española de Inteligencia Artificial de Microsoft. Eventos, workshops y recursos gratuitos sobre IA."
+---
+
+<!-- HERO SECTION -->
+<section class="hero-section position-relative overflow-hidden bg-dark text-white" style="min-height: 85vh; display: flex; align-items: center;">
+  <!-- Fondo animado -->
+  <div class="hero-bg-pattern position-absolute top-0 start-0 w-100 h-100" aria-hidden="true"></div>
+
+  <div class="container position-relative py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="badge bg-warning text-dark fw-bold mb-3 px-3 py-2 fs-6">
+          <i class="bi bi-stars me-1"></i> Comunidad Global AI · Madrid
+        </span>
+        <h1 class="display-3 fw-bold lh-sm mb-4">
+          La IA que
+          <span class="text-warning">transforma</span><br>
+          nuestra comunidad
+        </h1>
+        <p class="lead text-white-50 mb-4" style="max-width: 560px;">
+          Somos la comunidad española de referencia en Inteligencia Artificial de Microsoft.
+          Conectamos profesionales, estudiantes y empresas mediante eventos <strong class="text-white">100% gratuitos</strong>.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="/eventos/" class="btn btn-warning btn-lg text-dark fw-bold px-4">
+            <i class="bi bi-calendar-event me-2"></i>Próximos Eventos
+          </a>
+          <a href="/sobre-nosotros/" class="btn btn-outline-light btn-lg px-4">
+            <i class="bi bi-people me-2"></i>Sobre Nosotros
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-4 mt-4">
+          <div class="col-4">
+            <div class="stat-item">
+              <div class="fs-2 fw-bold text-warning">+2000</div>
+              <div class="text-white-50 small">Asistentes históricos</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="stat-item">
+              <div class="fs-2 fw-bold text-warning">8+</div>
+              <div class="text-white-50 small">Años de comunidad</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="stat-item">
+              <div class="fs-2 fw-bold text-warning">177</div>
+              <div class="text-white-50 small">Comunidades globales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 text-center d-none d-lg-block">
+        <img src="{{ '/assets/images/hero-illustration.svg' | relative_url }}"
+             alt="Global AI Community illustration"
+             class="img-fluid"
+             style="max-height: 420px;"
+             onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRÓXIMO EVENTO DESTACADO -->
+{% assign upcoming_events = site.data.events | where: "status", "upcoming" %}
+{% if upcoming_events.size > 0 %}
+{% assign next_event = upcoming_events | first %}
+<section class="py-5 bg-warning" aria-labelledby="next-event-heading">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <span class="badge bg-dark text-white mb-2">
+          <i class="bi bi-calendar-check me-1"></i>Próximo Evento
+        </span>
+        <h2 class="fw-bold text-dark mb-2" id="next-event-heading">{{ next_event.name }}</h2>
+        <p class="text-dark mb-3">
+          <i class="bi bi-calendar3 me-2"></i>
+          <strong>{{ next_event.date | date: "%d de %B de %Y" }}</strong>
+          &nbsp;|&nbsp;
+          <i class="bi bi-geo-alt me-2"></i>
+          <strong>{{ next_event.location }}</strong>
+        </p>
+        <p class="text-dark opacity-75 mb-0">{{ next_event.description | truncate: 200 }}</p>
+      </div>
+      <div class="col-lg-4 text-lg-end d-flex gap-2 flex-wrap justify-content-lg-end">
+        {% if next_event.eventbrite_url %}
+        <a href="{{ next_event.eventbrite_url }}" target="_blank" rel="noopener"
+           class="btn btn-dark btn-lg fw-bold">
+          <i class="bi bi-ticket-perforated me-2"></i>Regístrate gratis
+        </a>
+        {% endif %}
+        {% if next_event.sessionize_url %}
+        <a href="{{ next_event.sessionize_url }}" target="_blank" rel="noopener"
+           class="btn btn-outline-dark btn-lg">
+          <i class="bi bi-card-list me-2"></i>Ver Agenda
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ¿QUÉ HACEMOS? -->
+<section class="py-5" aria-labelledby="what-we-do-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold" id="what-we-do-heading">¿Qué hacemos?</h2>
+      <p class="text-muted lead">Aprendemos, compartimos y construimos juntos el futuro de la IA</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 text-center p-4">
+          <div class="icon-box bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:72px;height:72px">
+            <i class="bi bi-laptop fs-2 text-warning"></i>
+          </div>
+          <h3 class="h5 fw-bold">Eventos & Bootcamps</h3>
+          <p class="text-muted small">Sesiones técnicas, workshops y conferencias 100% gratuitas con ponentes MVPs y expertos de Microsoft.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 text-center p-4">
+          <div class="icon-box bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:72px;height:72px">
+            <i class="bi bi-people fs-2 text-warning"></i>
+          </div>
+          <h3 class="h5 fw-bold">Comunidad</h3>
+          <p class="text-muted small">Conectamos más de 2000 profesionales en Madrid y formamos parte de la red global de 177 comunidades en 71 países.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 text-center p-4">
+          <div class="icon-box bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:72px;height:72px">
+            <i class="bi bi-mortarboard fs-2 text-warning"></i>
+          </div>
+          <h3 class="h5 fw-bold">Formación & Recursos</h3>
+          <p class="text-muted small">Materiales de sesiones, laboratorios prácticos y guías de aprendizaje disponibles en GitHub de forma abierta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍAS / TÓPICOS -->
+<section class="py-5 bg-light" aria-labelledby="topics-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold" id="topics-heading">Tecnologías que cubrimos</h2>
+      <p class="text-muted">Del ecosistema Microsoft AI y Open Source</p>
+    </div>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center">
+      {% assign topics = "Azure AI Foundry, Azure OpenAI, Microsoft Copilot, Model Context Protocol, Semantic Kernel, Azure Machine Learning, Microsoft Fabric, Phi Models, DeepSeek-R1, Llama, PyTorch, ML.NET" | split: ", " %}
+      {% for topic in topics %}
+      <div class="col text-center">
+        <div class="badge bg-dark text-white px-3 py-2 rounded-3 w-100 small fw-normal">{{ topic }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- EVENTOS PASADOS -->
+<section class="py-5" aria-labelledby="past-events-heading">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="h3 fw-bold mb-0" id="past-events-heading">Eventos Anteriores</h2>
+      <a href="/eventos/" class="btn btn-outline-dark btn-sm">Ver todos <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+    <div class="row g-4">
+      {% assign past_events = site.data.events | where: "status", "past" %}
+      {% for event in past_events limit: 3 %}
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          {% if event.image %}
+          <img src="{{ event.image | relative_url }}" class="card-img-top" alt="{{ event.name }}" style="height:180px;object-fit:cover;">
+          {% else %}
+          <div class="card-img-top bg-dark d-flex align-items-center justify-content-center" style="height:180px;">
+            <i class="bi bi-calendar-event fs-1 text-warning"></i>
+          </div>
+          {% endif %}
+          <div class="card-body">
+            <span class="badge bg-secondary mb-2">{{ event.date | date: "%Y" }}</span>
+            <h3 class="h6 fw-bold card-title">{{ event.name }}</h3>
+            <p class="card-text text-muted small">{{ event.description | truncate: 100 }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <div class="d-flex flex-wrap gap-1">
+              {% for tag in event.tags limit: 3 %}
+              <span class="badge bg-warning-subtle text-dark small">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PATROCINADORES -->
+<section class="py-5 bg-light" aria-labelledby="sponsors-heading">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h4 fw-bold text-muted text-uppercase small letter-spacing-wide" id="sponsors-heading">
+        Nuestros Patrocinadores
+      </h2>
+    </div>
+    <div class="row align-items-center justify-content-center g-4 g-lg-5">
+      {% for sponsor in site.data.sponsors %}
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+        <a href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer" title="{{ sponsor.name }}">
+          {% if sponsor.logo %}
+          <img src="{{ sponsor.logo | relative_url }}"
+               alt="{{ sponsor.name }}"
+               class="img-fluid sponsor-logo"
+               style="max-height:60px;filter:grayscale(100%);opacity:0.7;transition:all .3s"
+               onmouseover="this.style.filter='grayscale(0%)';this.style.opacity='1'"
+               onmouseout="this.style.filter='grayscale(100%)';this.style.opacity='0.7'">
+          {% else %}
+          <span class="fw-bold text-muted">{{ sponsor.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="/patrocinadores/" class="btn btn-outline-dark btn-sm">
+        <i class="bi bi-heart me-1 text-warning"></i>¿Quieres patrocinar?
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA NEWSLETTER / COMUNIDAD -->
+<section class="py-5 bg-dark text-white text-center" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="col-lg-7 mx-auto">
+      <i class="bi bi-rocket-takeoff fs-1 text-warning mb-3 d-block"></i>
+      <h2 class="display-6 fw-bold mb-3" id="cta-heading">Únete a la comunidad</h2>
+      <p class="lead text-white-50 mb-4">
+        Sé el primero en enterarte de nuestros próximos eventos, recursos y noticias del ecosistema de IA.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="https://www.meetup.com/Global-AI-Spain" target="_blank" rel="noopener"
+           class="btn btn-warning text-dark fw-bold btn-lg px-4">
+          <i class="bi bi-people-fill me-2"></i>Unirse en Meetup
+        </a>
+        <a href="{{ site.youtube_url }}" target="_blank" rel="noopener"
+           class="btn btn-outline-light btn-lg px-4">
+          <i class="bi bi-youtube me-2"></i>YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

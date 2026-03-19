@@ -1,0 +1,23 @@
+- name: "Microsoft"
+  tier: "platinum"
+  logo: "/assets/images/sponsors/microsoft.svg"
+  url: "https://microsoft.com"
+  description: "Patrocinador principal y partner tecnológico"
+
+- name: "NTT DATA"
+  tier: "gold"
+  logo: "/assets/images/sponsors/nttdata.svg"
+  url: "https://nttdata.com/es/es/"
+  description: "Sede y patrocinador del evento"
+
+- name: "ENCAMINA"
+  tier: "silver"
+  logo: "/assets/images/sponsors/encamina.svg"
+  url: "https://encamina.com"
+  description: "Patrocinador silver"
+
+- name: "Plain Concepts"
+  tier: "silver"
+  logo: "/assets/images/sponsors/plainconcepts.svg"
+  url: "https://plainconcepts.com"
+  description: "Patrocinador silver"

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="page-hero py-5 bg-dark text-white">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-light">Inicio</a></li>
+        <li class="breadcrumb-item active text-warning" aria-current="page">{{ page.title }}</li>
+      </ol>
+    </nav>
+    <h1 class="display-5 fw-bold">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="lead text-light opacity-75">{{ page.subtitle }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <article class="page-content">
+        {{ content }}
+      </article>
+    </div>
+  </div>
+</div>

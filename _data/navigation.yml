@@ -1,0 +1,32 @@
+# Navegación principal
+main:
+  - title: "Inicio"
+    url: "/"
+  - title: "Eventos"
+    url: "/eventos/"
+  - title: "Sobre Nosotros"
+    url: "/sobre-nosotros/"
+  - title: "Patrocinadores"
+    url: "/patrocinadores/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Contacto"
+    url: "/contacto/"
+
+# Redes sociales en el footer
+social:
+  - title: "Twitter/X"
+    url: "https://twitter.com/GlobalAISpain"
+    icon: "bi-twitter-x"
+  - title: "LinkedIn"
+    url: "https://www.linkedin.com/company/globalai-spain"
+    icon: "bi-linkedin"
+  - title: "YouTube"
+    url: "https://www.youtube.com/@GlobalAISpain"
+    icon: "bi-youtube"
+  - title: "GitHub"
+    url: "https://github.com/GlobalAISpain"
+    icon: "bi-github"
+  - title: "Meetup"
+    url: "https://www.meetup.com/Global-AI-Spain"
+    icon: "bi-people-fill"

@@ -1,0 +1,87 @@
+---
+layout: default
+title: "Blog"
+description: "Artículos, noticias y recursos sobre Inteligencia Artificial del ecosistema Microsoft."
+permalink: /blog/
+---
+
+<div class="page-hero py-5 bg-dark text-white">
+  <div class="container">
+    <h1 class="display-5 fw-bold"><i class="bi bi-journal-text text-warning me-3"></i>Blog</h1>
+    <p class="lead text-white-50">Artículos, noticias y recursos sobre IA de Microsoft</p>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row g-4">
+    {% if paginator.posts.size > 0 %}
+      {% for post in paginator.posts %}
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-0 shadow-sm">
+          {% if post.image %}
+          <img src="{{ post.image | relative_url }}" class="card-img-top" alt="{{ post.title }}"
+               style="height:200px;object-fit:cover;">
+          {% else %}
+          <div class="card-img-top bg-dark d-flex align-items-center justify-content-center" style="height:120px;">
+            <i class="bi bi-journal-code fs-1 text-warning"></i>
+          </div>
+          {% endif %}
+          <div class="card-body">
+            <div class="mb-2">
+              {% for tag in post.tags limit: 2 %}
+              <span class="badge bg-warning text-dark small me-1">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <h2 class="h6 fw-bold">
+              <a href="{{ post.url | relative_url }}" class="stretched-link text-decoration-none text-dark">
+                {{ post.title }}
+              </a>
+            </h2>
+            <p class="text-muted small mb-0">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 text-muted small">
+            <i class="bi bi-calendar3 me-1"></i>{{ post.date | date: "%d %b %Y" }}
+            {% if post.author %}· {{ post.author }}{% endif %}
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    {% else %}
+    <div class="col-12 text-center py-5">
+      <i class="bi bi-journal-x fs-1 text-muted mb-3 d-block"></i>
+      <p class="text-muted">Próximamente publicaremos artículos y recursos.</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Paginación -->
+  {% if paginator.total_pages > 1 %}
+  <nav class="mt-5" aria-label="Paginación del blog">
+    <ul class="pagination justify-content-center">
+      {% if paginator.previous_page %}
+      <li class="page-item">
+        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">
+          <i class="bi bi-chevron-left"></i> Anterior
+        </a>
+      </li>
+      {% endif %}
+      {% for i in (1..paginator.total_pages) %}
+      <li class="page-item {% if i == paginator.page %}active{% endif %}">
+        {% if i == 1 %}
+        <a class="page-link" href="/blog/">{{ i }}</a>
+        {% else %}
+        <a class="page-link" href="/blog/page{{ i }}/">{{ i }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+      {% if paginator.next_page %}
+      <li class="page-item">
+        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">
+          Siguiente <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>

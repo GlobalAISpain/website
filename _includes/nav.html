@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
+  <div class="container">
+    <!-- Logo / Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <img src="{{ '/assets/images/logo-globalai-spain-white.png' | relative_url }}"
+           alt="Global AI Spain"
+           width="32" height="32"
+           onerror="this.style.display='none'">
+      <span class="fw-bold text-white">Global AI <span class="text-warning">Spain</span></span>
+    </a>
+
+    <!-- Toggle mobile -->
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarMain"
+            aria-controls="navbarMain" aria-expanded="false"
+            aria-label="Abrir menú de navegación">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% for item in site.data.navigation.main %}
+        <li class="nav-item">
+          <a class="nav-link px-3 {% if page.url == item.url %}active fw-bold text-warning{% endif %}"
+             {% if page.url == item.url %}aria-current="page"{% endif %}
+             href="{{ item.url | relative_url }}">
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

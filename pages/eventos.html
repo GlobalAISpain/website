@@ -1,0 +1,107 @@
+---
+layout: default
+title: "Eventos"
+description: "Todos los eventos organizados por Global AI Spain: bootcamps, workshops y meetups de Inteligencia Artificial en Madrid."
+permalink: /eventos/
+---
+
+<div class="page-hero py-5 bg-dark text-white">
+  <div class="container">
+    <h1 class="display-5 fw-bold"><i class="bi bi-calendar-event text-warning me-3"></i>Eventos</h1>
+    <p class="lead text-white-50">Bootcamps, workshops y meetups gratuitos sobre IA en Madrid</p>
+  </div>
+</div>
+
+<div class="container py-5">
+
+  <!-- PRÓXIMOS EVENTOS -->
+  {% assign upcoming = site.data.events | where: "status", "upcoming" %}
+  {% if upcoming.size > 0 %}
+  <section class="mb-5" aria-labelledby="upcoming-heading">
+    <h2 class="h4 fw-bold text-warning mb-4 d-flex align-items-center gap-2" id="upcoming-heading">
+      <i class="bi bi-calendar-check"></i> Próximos Eventos
+    </h2>
+    <div class="row g-4">
+      {% for event in upcoming %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow event-card">
+          {% if event.image %}
+          <img src="{{ event.image | relative_url }}" class="card-img-top" alt="{{ event.name }}" style="height:200px;object-fit:cover;">
+          {% else %}
+          <div class="card-img-top bg-dark d-flex align-items-center justify-content-center" style="height:200px;">
+            <i class="bi bi-calendar-star fs-1 text-warning"></i>
+          </div>
+          {% endif %}
+          <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 fw-bold">Próximo</span>
+          <div class="card-body">
+            <h3 class="h6 fw-bold">{{ event.name }}</h3>
+            <p class="text-muted small mb-1">
+              <i class="bi bi-calendar3 me-1"></i>{{ event.date | date: "%d de %B de %Y" }}
+            </p>
+            <p class="text-muted small mb-2">
+              <i class="bi bi-geo-alt me-1"></i>{{ event.location }}
+            </p>
+            <p class="card-text small text-muted">{{ event.description | truncate: 120 }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pb-3">
+            <div class="d-flex flex-wrap gap-1 mb-3">
+              {% for tag in event.tags limit: 4 %}
+              <span class="badge bg-dark text-white small">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <div class="d-flex gap-2">
+              {% if event.eventbrite_url %}
+              <a href="{{ event.eventbrite_url }}" target="_blank" rel="noopener"
+                 class="btn btn-warning btn-sm text-dark fw-bold flex-fill">
+                <i class="bi bi-ticket-perforated me-1"></i>Registro Gratis
+              </a>
+              {% endif %}
+              {% if event.sessionize_url %}
+              <a href="{{ event.sessionize_url }}" target="_blank" rel="noopener"
+                 class="btn btn-outline-dark btn-sm">
+                <i class="bi bi-list-ul"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- EVENTOS PASADOS -->
+  {% assign past = site.data.events | where: "status", "past" %}
+  {% if past.size > 0 %}
+  <section aria-labelledby="past-heading">
+    <h2 class="h4 fw-bold text-muted mb-4 d-flex align-items-center gap-2" id="past-heading">
+      <i class="bi bi-archive"></i> Ediciones Anteriores
+    </h2>
+    <div class="row g-3">
+      {% for event in past %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 bg-light event-card-past">
+          <div class="card-body">
+            <span class="badge bg-secondary mb-2">{{ event.date | date: "%Y" }}</span>
+            <h3 class="h6 fw-bold">{{ event.name }}</h3>
+            <p class="text-muted small mb-2">
+              <i class="bi bi-geo-alt me-1"></i>{{ event.location }}
+            </p>
+            <p class="card-text text-muted small">{{ event.description | truncate: 100 }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <div class="d-flex flex-wrap gap-1">
+              {% for tag in event.tags limit: 3 %}
+              <span class="badge bg-warning-subtle text-dark small">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</div>

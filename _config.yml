@@ -1,0 +1,81 @@
+# Configuración Jekyll - Global AI Spain
+title: "Global AI Spain"
+description: "La comunidad española de Inteligencia Artificial de Microsoft. Eventos, workshops y recursos sobre IA para profesionales y entusiastas."
+author: "Global AI Spain"
+email: "info@globalai.es"
+baseurl: ""
+url: "https://globalai.es"
+
+# Redes sociales
+twitter_username: GlobalAISpain
+github_username: GlobalAISpain
+linkedin_url: "https://www.linkedin.com/company/globalai-spain"
+youtube_url: "https://www.youtube.com/@GlobalAISpain"
+meetup_url: "https://www.meetup.com/Global-AI-Spain"
+
+# Configuración del sitio
+lang: "es"
+timezone: "Europe/Madrid"
+encoding: "utf-8"
+
+# Plugins para GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Paginación del blog
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Colecciones
+collections:
+  events:
+    output: true
+    permalink: /eventos/:slug/
+  speakers:
+    output: false
+  sponsors:
+    output: false
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Global AI Spain"
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
+  - scope:
+      path: "pages"
+    values:
+      layout: "page"
+
+# Excluir del build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .env
+
+# Sass
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# SEO
+logo: "/assets/images/logo-globalai-spain.png"
