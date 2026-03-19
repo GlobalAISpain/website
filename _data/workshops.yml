@@ -1,0 +1,29 @@
+- title: "De la Caja Negra a la Confianza: Interpretabilidad e Incertidumbre"
+  speakers: "Pau Sempere"
+  time: "10:00 - 14:00"
+  session: "morning"
+
+- title: "All about AI Foundry. Modelos, agentes y más…"
+  speakers: "Luis López, Roberto Tejero"
+  time: "10:00 - 14:00"
+  session: "morning"
+
+- title: "Kitten Agent Blog: Cómo crear agentes autónomos con GitHub Copilot"
+  speakers: "Alejandro Almeida, Maria Soto"
+  time: "10:00 - 14:00"
+  session: "morning"
+
+- title: "Introducción al Microsoft Agent Framework"
+  speakers: "Roberto Navarro"
+  time: "15:00 - 19:00"
+  session: "afternoon"
+
+- title: "Aprende de MCP de CERO a HÉROE"
+  speakers: "Borja Piris de Castro, Alberto Díaz, Rodrigo Liberoff"
+  time: "15:00 - 19:00"
+  session: "afternoon"
+
+- title: "Más allá del RAG: cómo GraphRAG da contexto real a las búsquedas"
+  speakers: "Emilio Delgado"
+  time: "15:00 - 19:00"
+  session: "afternoon"

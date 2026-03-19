@@ -1,104 +1,43 @@
-<footer class="footer bg-dark text-white pt-5 pb-3 mt-5">
-  <div class="container">
-    <div class="row g-4">
-
-      <!-- Columna: Identidad -->
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex align-items-center gap-2 mb-3">
-          <img src="{{ '/assets/images/logo-globalai-spain-white.png' | relative_url }}"
-               alt="Global AI Spain" width="40" height="40"
-               onerror="this.style.display='none'">
-          <span class="fs-5 fw-bold">Global AI <span class="text-warning">Spain</span></span>
-        </div>
-        <p class="text-white-50 small">
-          La comunidad española de Inteligencia Artificial de Microsoft.
-          Organizamos eventos gratuitos para conectar profesionales y entusiastas de la IA.
-        </p>
-        <div class="social-links d-flex gap-2 mt-3">
-          {% for social in site.data.navigation.social %}
-          <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer"
-             class="btn btn-sm btn-outline-light rounded-circle"
-             aria-label="{{ social.title }}" title="{{ social.title }}">
-            <i class="bi {{ social.icon }}"></i>
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- Columna: Navegación -->
-      <div class="col-lg-2 col-md-6 col-6">
-        <h6 class="text-warning fw-bold text-uppercase mb-3 small">Secciones</h6>
-        <ul class="list-unstyled">
-          {% for item in site.data.navigation.main %}
-          <li class="mb-2">
-            <a href="{{ item.url | relative_url }}" class="text-white-50 text-decoration-none small hover-text-white">
-              {{ item.title }}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Columna: Eventos recientes -->
-      <div class="col-lg-3 col-md-6 col-6">
-        <h6 class="text-warning fw-bold text-uppercase mb-3 small">Próximos Eventos</h6>
-        <ul class="list-unstyled">
-          {% assign upcoming = site.data.events | where: "status", "upcoming" %}
-          {% for event in upcoming limit: 3 %}
-          <li class="mb-2">
-            <a href="/eventos/{{ event.slug }}/" class="text-white-50 text-decoration-none small">
-              <i class="bi bi-calendar2-event me-1 text-warning"></i>
-              {{ event.name | truncate: 35 }}
-            </a>
-          </li>
-          {% endfor %}
-          <li class="mt-2">
-            <a href="/eventos/" class="text-warning text-decoration-none small fw-semibold">
-              Ver todos los eventos <i class="bi bi-arrow-right"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Columna: Contacto -->
-      <div class="col-lg-3 col-md-6">
-        <h6 class="text-warning fw-bold text-uppercase mb-3 small">Contacto</h6>
-        <ul class="list-unstyled text-white-50 small">
-          <li class="mb-2">
-            <i class="bi bi-envelope me-2 text-warning"></i>
-            <a href="mailto:{{ site.email }}" class="text-white-50 text-decoration-none">{{ site.email }}</a>
-          </li>
-          <li class="mb-2">
-            <i class="bi bi-geo-alt me-2 text-warning"></i>Madrid, España
-          </li>
-          <li class="mb-2">
-            <i class="bi bi-globe me-2 text-warning"></i>Miembros de
-            <a href="https://globalai.community" target="_blank" rel="noopener" class="text-warning text-decoration-none">Global AI Community</a>
-          </li>
-        </ul>
-        <a href="/contacto/" class="btn btn-warning btn-sm mt-2 text-dark fw-bold">
-          <i class="bi bi-send me-1"></i> Contáctanos
+<!-- Footer: dark background, social icons, copyright -->
+<footer class="bg-dark text-white">
+  <!-- Social + CTA -->
+  <div class="py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="font-quicksand font-bold text-2xl md:text-3xl mb-6">Únete a la comunidad Global AI</h3>
+      <div class="flex justify-center gap-4 mb-8">
+        {% if site.social.twitter %}
+        <a href="{{ site.social.twitter }}" target="_blank" rel="noopener"
+           class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-brand hover:border-brand transition-all duration-300">
+          <i class="fab fa-x-twitter text-lg"></i>
         </a>
+        {% endif %}
+        {% if site.social.linkedin %}
+        <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener"
+           class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-brand hover:border-brand transition-all duration-300">
+          <i class="fab fa-linkedin-in text-lg"></i>
+        </a>
+        {% endif %}
+        {% if site.social.youtube %}
+        <a href="{{ site.social.youtube }}" target="_blank" rel="noopener"
+           class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-brand hover:border-brand transition-all duration-300">
+          <i class="fab fa-youtube text-lg"></i>
+        </a>
+        {% endif %}
+        {% if site.social.github %}
+        <a href="{{ site.social.github }}" target="_blank" rel="noopener"
+           class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-brand hover:border-brand transition-all duration-300">
+          <i class="fab fa-github text-lg"></i>
+        </a>
+        {% endif %}
       </div>
     </div>
+  </div>
 
-    <hr class="border-secondary my-4">
-
-    <div class="row align-items-center">
-      <div class="col-md-6 text-center text-md-start">
-        <p class="text-white-50 small mb-0">
-          &copy; {{ 'now' | date: "%Y" }} Global AI Spain.
-          Contenido bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/" class="text-white-50" target="_blank" rel="noopener">CC BY 4.0</a>.
-        </p>
-      </div>
-      <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-        <p class="text-white-50 small mb-0">
-          Hecho con <i class="bi bi-heart-fill text-danger"></i> por la comunidad &middot;
-          <a href="https://github.com/GlobalAISpain/website" target="_blank" rel="noopener" class="text-white-50">
-            <i class="bi bi-github me-1"></i>Código abierto
-          </a>
-        </p>
-      </div>
+  <!-- Copyright -->
+  <div class="border-t border-gray-700 py-6 text-center text-gray-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Todos los derechos reservados.</p>
+      <p class="mt-1">Hecho con <i class="fas fa-heart text-brand"></i> por la comunidad Global AI Spain</p>
     </div>
   </div>
 </footer>

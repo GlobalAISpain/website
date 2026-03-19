@@ -1,260 +1,441 @@
 ---
 layout: default
-title: "Global AI Spain - Comunidad de IA de Microsoft en España"
-description: "La comunidad española de Inteligencia Artificial de Microsoft. Eventos, workshops y recursos gratuitos sobre IA."
+title: "AgentCamp 2026 - Madrid"
 ---
 
-<!-- HERO SECTION -->
-<section class="hero-section position-relative overflow-hidden bg-dark text-white" style="min-height: 85vh; display: flex; align-items: center;">
-  <!-- Fondo animado -->
-  <div class="hero-bg-pattern position-absolute top-0 start-0 w-100 h-100" aria-hidden="true"></div>
+<!-- ==================== HERO ==================== -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+       style="background-image: url('{{ site.banner_image }}');">
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
 
-  <div class="container position-relative py-5">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-7">
-        <span class="badge bg-warning text-dark fw-bold mb-3 px-3 py-2 fs-6">
-          <i class="bi bi-stars me-1"></i> Comunidad Global AI · Madrid
-        </span>
-        <h1 class="display-3 fw-bold lh-sm mb-4">
-          La IA que
-          <span class="text-warning">transforma</span><br>
-          nuestra comunidad
-        </h1>
-        <p class="lead text-white-50 mb-4" style="max-width: 560px;">
-          Somos la comunidad española de referencia en Inteligencia Artificial de Microsoft.
-          Conectamos profesionales, estudiantes y empresas mediante eventos <strong class="text-white">100% gratuitos</strong>.
-        </p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="/eventos/" class="btn btn-warning btn-lg text-dark fw-bold px-4">
-            <i class="bi bi-calendar-event me-2"></i>Próximos Eventos
-          </a>
-          <a href="/sobre-nosotros/" class="btn btn-outline-light btn-lg px-4">
-            <i class="bi bi-people me-2"></i>Sobre Nosotros
-          </a>
-        </div>
+  <div class="relative z-10 text-center text-white px-4 py-20">
+    <img src="{{ site.logo_white }}" alt="Global AI Community" class="h-16 md:h-20 mx-auto mb-8 brightness-0 invert">
+    <h2 class="text-2xl md:text-4xl font-bold mb-2 tracking-wide">Madrid - SPAIN</h2>
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">28 de Febrero de 2026</h1>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <a href="{{ site.event.eventbrite_conf }}" target="_blank" rel="noopener"
+         class="px-8 py-4 bg-brand text-white text-lg font-bold uppercase tracking-wider rounded hover:bg-navy transition-all duration-300 border-2 border-brand hover:border-navy">
+        Entrada Conferencia
+      </a>
+      <a href="{{ site.event.eventbrite_ws }}" target="_blank" rel="noopener"
+         class="px-8 py-4 bg-transparent text-white text-lg font-bold uppercase tracking-wider rounded border-2 border-white hover:bg-brand hover:border-brand transition-all duration-300">
+        Entrada Workshops
+      </a>
+    </div>
+  </div>
 
-        <!-- Stats -->
-        <div class="row g-4 mt-4">
-          <div class="col-4">
-            <div class="stat-item">
-              <div class="fs-2 fw-bold text-warning">+2000</div>
-              <div class="text-white-50 small">Asistentes históricos</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="stat-item">
-              <div class="fs-2 fw-bold text-warning">8+</div>
-              <div class="text-white-50 small">Años de comunidad</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="stat-item">
-              <div class="fs-2 fw-bold text-warning">177</div>
-              <div class="text-white-50 small">Comunidades globales</div>
-            </div>
-          </div>
-        </div>
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce">
+    <i class="fas fa-chevron-down text-2xl"></i>
+  </div>
+</section>
+
+<!-- ==================== COUNTDOWN ==================== -->
+<section id="countdown-section" class="bg-dark py-12">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <p class="text-white text-lg mb-6 font-semibold">La conferencia empieza en:</p>
+    <div class="flex justify-center gap-4 md:gap-8">
+      <div class="bg-dark-deep border-b-4 border-brand rounded-lg p-4 md:p-6 min-w-[80px]">
+        <span id="countdown-days" class="text-4xl md:text-5xl font-bold text-white block">00</span>
+        <span class="text-gray-400 text-sm uppercase tracking-wider">Days</span>
       </div>
-
-      <div class="col-lg-5 text-center d-none d-lg-block">
-        <img src="{{ '/assets/images/hero-illustration.svg' | relative_url }}"
-             alt="Global AI Community illustration"
-             class="img-fluid"
-             style="max-height: 420px;"
-             onerror="this.style.display='none'">
+      <div class="bg-dark-deep border-b-4 border-brand rounded-lg p-4 md:p-6 min-w-[80px]">
+        <span id="countdown-hours" class="text-4xl md:text-5xl font-bold text-white block">00</span>
+        <span class="text-gray-400 text-sm uppercase tracking-wider">Hrs</span>
+      </div>
+      <div class="bg-dark-deep border-b-4 border-brand rounded-lg p-4 md:p-6 min-w-[80px]">
+        <span id="countdown-minutes" class="text-4xl md:text-5xl font-bold text-white block">00</span>
+        <span class="text-gray-400 text-sm uppercase tracking-wider">Min</span>
+      </div>
+      <div class="bg-dark-deep border-b-4 border-brand rounded-lg p-4 md:p-6 min-w-[80px]">
+        <span id="countdown-seconds" class="text-4xl md:text-5xl font-bold text-white block">00</span>
+        <span class="text-gray-400 text-sm uppercase tracking-wider">Sec</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRÓXIMO EVENTO DESTACADO -->
-{% assign upcoming_events = site.data.events | where: "status", "upcoming" %}
-{% if upcoming_events.size > 0 %}
-{% assign next_event = upcoming_events | first %}
-<section class="py-5 bg-warning" aria-labelledby="next-event-heading">
-  <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-8">
-        <span class="badge bg-dark text-white mb-2">
-          <i class="bi bi-calendar-check me-1"></i>Próximo Evento
-        </span>
-        <h2 class="fw-bold text-dark mb-2" id="next-event-heading">{{ next_event.name }}</h2>
-        <p class="text-dark mb-3">
-          <i class="bi bi-calendar3 me-2"></i>
-          <strong>{{ next_event.date | date: "%d de %B de %Y" }}</strong>
-          &nbsp;|&nbsp;
-          <i class="bi bi-geo-alt me-2"></i>
-          <strong>{{ next_event.location }}</strong>
-        </p>
-        <p class="text-dark opacity-75 mb-0">{{ next_event.description | truncate: 200 }}</p>
-      </div>
-      <div class="col-lg-4 text-lg-end d-flex gap-2 flex-wrap justify-content-lg-end">
-        {% if next_event.eventbrite_url %}
-        <a href="{{ next_event.eventbrite_url }}" target="_blank" rel="noopener"
-           class="btn btn-dark btn-lg fw-bold">
-          <i class="bi bi-ticket-perforated me-2"></i>Regístrate gratis
-        </a>
-        {% endif %}
-        {% if next_event.sessionize_url %}
-        <a href="{{ next_event.sessionize_url }}" target="_blank" rel="noopener"
-           class="btn btn-outline-dark btn-lg">
-          <i class="bi bi-card-list me-2"></i>Ver Agenda
-        </a>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</section>
-{% endif %}
-
-<!-- ¿QUÉ HACEMOS? -->
-<section class="py-5" aria-labelledby="what-we-do-heading">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold" id="what-we-do-heading">¿Qué hacemos?</h2>
-      <p class="text-muted lead">Aprendemos, compartimos y construimos juntos el futuro de la IA</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100 text-center p-4">
-          <div class="icon-box bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:72px;height:72px">
-            <i class="bi bi-laptop fs-2 text-warning"></i>
-          </div>
-          <h3 class="h5 fw-bold">Eventos & Bootcamps</h3>
-          <p class="text-muted small">Sesiones técnicas, workshops y conferencias 100% gratuitas con ponentes MVPs y expertos de Microsoft.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100 text-center p-4">
-          <div class="icon-box bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:72px;height:72px">
-            <i class="bi bi-people fs-2 text-warning"></i>
-          </div>
-          <h3 class="h5 fw-bold">Comunidad</h3>
-          <p class="text-muted small">Conectamos más de 2000 profesionales en Madrid y formamos parte de la red global de 177 comunidades en 71 países.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100 text-center p-4">
-          <div class="icon-box bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:72px;height:72px">
-            <i class="bi bi-mortarboard fs-2 text-warning"></i>
-          </div>
-          <h3 class="h5 fw-bold">Formación & Recursos</h3>
-          <p class="text-muted small">Materiales de sesiones, laboratorios prácticos y guías de aprendizaje disponibles en GitHub de forma abierta.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TECNOLOGÍAS / TÓPICOS -->
-<section class="py-5 bg-light" aria-labelledby="topics-heading">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold" id="topics-heading">Tecnologías que cubrimos</h2>
-      <p class="text-muted">Del ecosistema Microsoft AI y Open Source</p>
-    </div>
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center">
-      {% assign topics = "Azure AI Foundry, Azure OpenAI, Microsoft Copilot, Model Context Protocol, Semantic Kernel, Azure Machine Learning, Microsoft Fabric, Phi Models, DeepSeek-R1, Llama, PyTorch, ML.NET" | split: ", " %}
-      {% for topic in topics %}
-      <div class="col text-center">
-        <div class="badge bg-dark text-white px-3 py-2 rounded-3 w-100 small fw-normal">{{ topic }}</div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- EVENTOS PASADOS -->
-<section class="py-5" aria-labelledby="past-events-heading">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="h3 fw-bold mb-0" id="past-events-heading">Eventos Anteriores</h2>
-      <a href="/eventos/" class="btn btn-outline-dark btn-sm">Ver todos <i class="bi bi-arrow-right ms-1"></i></a>
-    </div>
-    <div class="row g-4">
-      {% assign past_events = site.data.events | where: "status", "past" %}
-      {% for event in past_events limit: 3 %}
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-          {% if event.image %}
-          <img src="{{ event.image | relative_url }}" class="card-img-top" alt="{{ event.name }}" style="height:180px;object-fit:cover;">
-          {% else %}
-          <div class="card-img-top bg-dark d-flex align-items-center justify-content-center" style="height:180px;">
-            <i class="bi bi-calendar-event fs-1 text-warning"></i>
-          </div>
-          {% endif %}
-          <div class="card-body">
-            <span class="badge bg-secondary mb-2">{{ event.date | date: "%Y" }}</span>
-            <h3 class="h6 fw-bold card-title">{{ event.name }}</h3>
-            <p class="card-text text-muted small">{{ event.description | truncate: 100 }}</p>
-          </div>
-          <div class="card-footer bg-transparent border-0 pb-3">
-            <div class="d-flex flex-wrap gap-1">
-              {% for tag in event.tags limit: 3 %}
-              <span class="badge bg-warning-subtle text-dark small">{{ tag }}</span>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- PATROCINADORES -->
-<section class="py-5 bg-light" aria-labelledby="sponsors-heading">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="h4 fw-bold text-muted text-uppercase small letter-spacing-wide" id="sponsors-heading">
-        Nuestros Patrocinadores
-      </h2>
-    </div>
-    <div class="row align-items-center justify-content-center g-4 g-lg-5">
-      {% for sponsor in site.data.sponsors %}
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-        <a href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer" title="{{ sponsor.name }}">
-          {% if sponsor.logo %}
-          <img src="{{ sponsor.logo | relative_url }}"
-               alt="{{ sponsor.name }}"
-               class="img-fluid sponsor-logo"
-               style="max-height:60px;filter:grayscale(100%);opacity:0.7;transition:all .3s"
-               onmouseover="this.style.filter='grayscale(0%)';this.style.opacity='1'"
-               onmouseout="this.style.filter='grayscale(100%)';this.style.opacity='0.7'">
-          {% else %}
-          <span class="fw-bold text-muted">{{ sponsor.name }}</span>
-          {% endif %}
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="text-center mt-4">
-      <a href="/patrocinadores/" class="btn btn-outline-dark btn-sm">
-        <i class="bi bi-heart me-1 text-warning"></i>¿Quieres patrocinar?
+<!-- ==================== ENTRADAS ==================== -->
+<section id="tickets" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2">Entradas</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-8"></div>
+    <p class="text-gray-600 text-lg mb-4">
+      Consigue tu entrada desde nuestro espacio en Eventbrite.
+    </p>
+    <p class="text-gray-500 text-sm mb-8 max-w-2xl mx-auto">
+      Tu donación será entregada íntegramente a la causa benéfica indicada. La organización del evento no recibe ni cobra cantidad alguna por la gestión. Eventbrite descontará un pequeño porcentaje correspondiente a la tarifa por la gestión desde su plataforma. En caso de devolución, esta tarifa será deducida del importe.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{{ site.event.eventbrite_conf }}" target="_blank" rel="noopener"
+         class="px-8 py-4 bg-brand text-white font-bold uppercase tracking-wider rounded hover:bg-navy transition-all duration-300">
+        Entradas Conferencia
+      </a>
+      <a href="{{ site.event.eventbrite_ws }}" target="_blank" rel="noopener"
+         class="px-8 py-4 bg-brand text-white font-bold uppercase tracking-wider rounded hover:bg-navy transition-all duration-300">
+        Entradas Workshops
       </a>
     </div>
   </div>
 </section>
 
-<!-- CTA NEWSLETTER / COMUNIDAD -->
-<section class="py-5 bg-dark text-white text-center" aria-labelledby="cta-heading">
-  <div class="container">
-    <div class="col-lg-7 mx-auto">
-      <i class="bi bi-rocket-takeoff fs-1 text-warning mb-3 d-block"></i>
-      <h2 class="display-6 fw-bold mb-3" id="cta-heading">Únete a la comunidad</h2>
-      <p class="lead text-white-50 mb-4">
-        Sé el primero en enterarte de nuestros próximos eventos, recursos y noticias del ecosistema de IA.
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="py-20 bg-section-grey">
+  <div class="max-w-5xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2 text-center">
+      AgentCamp 2026 - Madrid <span class="text-brand">(aka Global AI Bootcamp)</span>
+    </h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-12"></div>
+
+    <div class="prose prose-lg max-w-none text-gray-600 space-y-6">
+      <p>
+        <strong>AgentCamp 2026 - Madrid (aka Global AI Bootcamp)</strong> es un evento anual gratuito organizado por la
+        <a href="https://globalai.community/" target="_blank" rel="noopener" class="text-brand hover:underline">Global AI Community</a>
+        que se realiza en más de 70 comunidades localidades de todo el mundo a las que les apasiona todo lo relacionado con el desarrollo de soluciones de Inteligencia Artificial con el stack de tecnologías de Microsoft.
       </p>
-      <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a href="https://www.meetup.com/Global-AI-Spain" target="_blank" rel="noopener"
-           class="btn btn-warning text-dark fw-bold btn-lg px-4">
-          <i class="bi bi-people-fill me-2"></i>Unirse en Meetup
-        </a>
-        <a href="{{ site.youtube_url }}" target="_blank" rel="noopener"
-           class="btn btn-outline-light btn-lg px-4">
-          <i class="bi bi-youtube me-2"></i>YouTube
+      <p>
+        En este sitio encontrarás toda la información sobre nuestro evento de dos días en Madrid (España) y accediendo a través de estos botones podrás adquirir tu entrada desde nuestro sitio en Eventbrite.
+      </p>
+    </div>
+
+    <!-- Sub-sections -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 bg-brand/10 rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-calendar-alt text-brand text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-bold text-dark-deep mb-3">Eventos en España</h4>
+        <p class="text-gray-600 text-sm">
+          Para este año en España se realizarán diversos eventos durante el año 2026 en las comunidades locales de Madrid, Valencia, Ponferrada, Málaga, Barcelona y Zaragoza. Aprenderás de expertos en tecnología Microsoft cómo implementar soluciones de IA utilizando Azure OpenAI, Copilot, Azure ML, PyTorch y ML.NET.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 bg-brand/10 rounded-full flex items-center justify-center mb-4">
+          <i class="fab fa-youtube text-brand text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-bold text-dark-deep mb-3">Evento Virtual en Youtube</h4>
+        <p class="text-gray-600 text-sm">
+          Este año tendremos únicamente evento presencial, pero si lo deseas también puedes disfrutar de las sesiones grabadas de ediciones anteriores en
+          <a href="{{ site.youtube_url }}" target="_blank" rel="noopener" class="text-brand hover:underline">nuestro canal de Youtube</a>.
+          Aquí podrás encontrar muchas ponencias correspondientes a los eventos del 2018 al 2024.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 bg-brand/10 rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-handshake text-brand text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-bold text-dark-deep mb-3">Apoyamos tu evento</h4>
+        <p class="text-gray-600 text-sm">
+          ¿Estás pensando en organizar un evento en tu localidad? Recuerda que siempre puedes ponerte en contacto con nosotros para que te ayudemos a promocionarlo. Estaremos encantados de incluirlo en este sitio si se trata de una localización dentro del territorio de España.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== UBICACIÓN ==================== -->
+<section id="location" class="py-20 bg-brand text-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold mb-2 text-center">Ubicación</h3>
+    <div class="w-16 h-1 bg-white mx-auto mb-12"></div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Evento Principal -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all">
+        <h4 class="text-2xl font-bold mb-4">
+          <i class="fas fa-university mr-2"></i> Evento Principal
+        </h4>
+        <p class="text-white/90 mb-2">
+          En Madrid, el evento principal se realizará el día <strong>28 de febrero de 2026</strong> en la Escuela Politécnica Superior de la Universidad CEU San Pablo.
+        </p>
+        <p class="text-white/80 text-sm mb-4">
+          <i class="fas fa-map-marker-alt mr-1"></i> {{ site.event.address_conf }}
+        </p>
+        <a href="{{ site.event.map_conf }}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand font-bold rounded hover:bg-dark hover:text-white transition-all duration-300">
+          <i class="fas fa-map"></i> Ver en Google Maps
         </a>
       </div>
+
+      <!-- Workshops -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all">
+        <h4 class="text-2xl font-bold mb-4">
+          <i class="fas fa-laptop-code mr-2"></i> Workshops
+        </h4>
+        <p class="text-white/90 mb-2">
+          Los Workshops se realizarán el día <strong>27 de febrero de 2026</strong> en las instalaciones de NTT DATA Spain.
+        </p>
+        <p class="text-white/80 text-sm mb-4">
+          <i class="fas fa-map-marker-alt mr-1"></i> {{ site.event.address_ws }}
+        </p>
+        <a href="{{ site.event.map_ws }}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand font-bold rounded hover:bg-dark hover:text-white transition-all duration-300">
+          <i class="fas fa-map"></i> Ver en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AGENDA WORKSHOPS ==================== -->
+<section id="workshops" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2 text-center">Agenda Workshops</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-4"></div>
+    <p class="text-gray-500 text-center mb-12">Pulsa sobre el título del workshop para más información</p>
+
+    <div class="space-y-3">
+      {% for ws in site.data.workshops %}
+      <div class="workshop-item border border-gray-200 rounded-lg overflow-hidden">
+        <button class="workshop-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-section-grey transition-colors"
+                aria-expanded="false">
+          <span class="font-bold text-dark-deep text-lg flex items-center gap-2">
+            <i class="fas fa-chevron-down text-brand text-sm transition-transform duration-300 workshop-icon"></i>
+            {{ ws.title }}
+          </span>
+          <span class="text-brand font-semibold text-sm whitespace-nowrap ml-4">{{ ws.time }}</span>
+        </button>
+        <div class="workshop-content hidden px-6 pb-4">
+          <div class="border-t border-gray-100 pt-4">
+            <p class="text-gray-600">
+              <i class="fas fa-user text-brand mr-2"></i>
+              <strong>Ponente{{ ws.speakers | split: ',' | size | minus: 1 | at_least: 0 }}{% if ws.speakers contains ',' %}s{% endif %}:</strong>
+              {{ ws.speakers }}
+            </p>
+            <p class="text-gray-600 mt-2">
+              <i class="fas fa-clock text-brand mr-2"></i>
+              <strong>Horario:</strong> {{ ws.time }}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AGENDA CONFERENCIAS ==================== -->
+<section id="schedule" class="py-20 bg-section-grey">
+  <div class="max-w-6xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2 text-center">Agenda Conferencias</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-4"></div>
+    <p class="text-gray-500 text-center mb-12">Consulta la agenda completa de sesiones</p>
+
+    <!-- Sessionize Embed -->
+    <div class="bg-white rounded-xl shadow-sm p-4 overflow-hidden">
+      <iframe src="{{ site.event.sessionize_embed }}"
+              class="w-full border-0 rounded-lg"
+              style="min-height: 800px;"
+              title="Agenda de Conferencias - Sessionize"
+              loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PLANO DEL EVENTO ==================== -->
+<section id="floor-plan" class="py-16 bg-brand text-white text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <h3 class="text-2xl md:text-3xl font-bold mb-4">Descarga el plano del evento</h3>
+    <p class="text-white/80 mb-8">
+      Próximamente podrás descargar el plano del espacio donde se va a realizar el evento. En él podrás localizar las salas de los tracks, la zona de catering, stands de sponsors, aseos, etc.
+    </p>
+    <a href="{{ site.event.floor_plan }}" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand font-bold uppercase tracking-wider rounded hover:bg-dark hover:text-white transition-all duration-300">
+      <i class="fas fa-download"></i> Descargar Plano
+    </a>
+  </div>
+</section>
+
+<!-- ==================== ORGANIZERS ==================== -->
+<section id="organizers" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2 text-center">Organizers</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-4"></div>
+    <p class="text-gray-500 text-center mb-12">Contamos con los principales líderes técnicos y nuevos talentos</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      {% for org in site.data.organizers %}
+      <div class="group text-center">
+        <div class="relative mb-4">
+          <!-- Social overlay -->
+          <div class="absolute inset-0 bg-brand/80 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
+            {% if org.twitter %}
+            <a href="{{ org.twitter }}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all">
+              <i class="fab fa-x-twitter text-sm"></i>
+            </a>
+            {% endif %}
+            {% if org.linkedin %}
+            <a href="{{ org.linkedin }}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+            {% endif %}
+            {% if org.github %}
+            <a href="{{ org.github }}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all">
+              <i class="fab fa-github text-sm"></i>
+            </a>
+            {% endif %}
+          </div>
+          <img src="{{ org.photo }}" alt="{{ org.name }}"
+               class="w-full aspect-square object-cover rounded-xl shadow-sm group-hover:shadow-lg transition-shadow"
+               loading="lazy">
+        </div>
+        <h4 class="font-bold text-dark-deep text-sm">{{ org.name }}</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-tight">{{ org.role }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COLABORADORES ==================== -->
+<section id="collaborators-people" class="py-20 bg-section-grey">
+  <div class="max-w-6xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2 text-center">Colaboradores</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-4"></div>
+    <p class="text-gray-500 text-center mb-12">Con la inestimable colaboración de...</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      {% for col in site.data.collaborators %}
+      <div class="group text-center">
+        <div class="relative mb-4">
+          <div class="absolute inset-0 bg-brand/80 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
+            {% if col.twitter %}
+            <a href="{{ col.twitter }}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all">
+              <i class="fab fa-x-twitter text-sm"></i>
+            </a>
+            {% endif %}
+            {% if col.linkedin %}
+            <a href="{{ col.linkedin }}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+            {% endif %}
+            {% if col.github %}
+            <a href="{{ col.github }}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all">
+              <i class="fab fa-github text-sm"></i>
+            </a>
+            {% endif %}
+          </div>
+          <img src="{{ col.photo }}" alt="{{ col.name }}"
+               class="w-full aspect-square object-cover rounded-xl shadow-sm group-hover:shadow-lg transition-shadow"
+               loading="lazy">
+        </div>
+        <h4 class="font-bold text-dark-deep text-sm">{{ col.name }}</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-tight">{{ col.role }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA REGISTRATION ==================== -->
+<section id="register" class="py-20 bg-brand text-white text-center">
+  <div class="max-w-4xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold mb-4">Regístrate ahora en el AgentCamp 2026 - Madrid</h3>
+    <p class="text-xl text-white/90 mb-6">Entradas ya disponibles</p>
+    <p class="text-white/80 mb-8">Síguenos por redes sociales para estar al corriente de las novedades.</p>
+
+    <!-- Social icons -->
+    <div class="flex justify-center gap-4 mb-8">
+      <a href="{{ site.social.twitter }}" target="_blank" rel="noopener"
+         class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all duration-300">
+        <i class="fab fa-x-twitter text-lg"></i>
+      </a>
+      <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener"
+         class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all duration-300">
+        <i class="fab fa-linkedin-in text-lg"></i>
+      </a>
+      <a href="{{ site.social.youtube }}" target="_blank" rel="noopener"
+         class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-brand transition-all duration-300">
+        <i class="fab fa-youtube text-lg"></i>
+      </a>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{{ site.event.eventbrite_conf }}" target="_blank" rel="noopener"
+         class="px-8 py-4 bg-white text-brand font-bold uppercase tracking-wider rounded hover:bg-dark hover:text-white transition-all duration-300">
+        Entradas Evento Principal
+      </a>
+      <a href="{{ site.event.eventbrite_ws }}" target="_blank" rel="noopener"
+         class="px-8 py-4 bg-transparent text-white font-bold uppercase tracking-wider rounded border-2 border-white hover:bg-white hover:text-brand transition-all duration-300">
+        Entradas Workshops
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SPONSORS ==================== -->
+<section id="sponsors" class="py-20 bg-section-grey">
+  <div class="max-w-5xl mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-deep mb-2 text-center">Patrocinadores</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-4"></div>
+    <p class="text-gray-500 text-center mb-16">
+      Agradecemos a todos nuestros patrocinadores su ayuda porque sin ellos este evento no sería posible. ¡Gracias a todos!
+    </p>
+
+    <!-- Premium -->
+    <div class="mb-16">
+      <h4 class="text-center text-brand font-bold text-xl uppercase tracking-wider mb-8">Premium</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center">
+        {% for sponsor in site.data.sponsors.premium %}
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow w-full flex items-center justify-center h-32">
+          <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}"
+               class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+               loading="lazy">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Gold -->
+    <div class="mb-16">
+      <h4 class="text-center text-brand font-bold text-xl uppercase tracking-wider mb-8">Gold</h4>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+        {% for sponsor in site.data.sponsors.gold %}
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow w-full flex items-center justify-center h-28">
+          <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}"
+               class="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+               loading="lazy">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BECOME SPONSOR ==================== -->
+<section class="py-16 bg-dark text-white text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <h3 class="text-2xl md:text-3xl font-bold mb-4">¿Estás interesado en ser un patrocinador?</h3>
+    <p class="text-gray-300 mb-8">
+      Si su empresa está interesada en patrocinar el AgentCamp 2026 de este año estaremos encantados de atenderles.
+    </p>
+    <a href="mailto:staff@globalai.es?subject=Patrocinio%20AgentCamp%202026%20-%20Madrid&body=Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20acerca%20del%20patrocinio"
+       class="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-bold uppercase tracking-wider rounded hover:bg-brand-hover transition-all duration-300">
+      <i class="fas fa-envelope"></i> Envíenos un correo a staff@globalai.es
+    </a>
+  </div>
+</section>
+
+<!-- ==================== COLLABORATOR LOGOS ==================== -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h3 class="text-2xl md:text-3xl font-bold text-dark-deep mb-2">Colaboradores</h3>
+    <div class="w-16 h-1 bg-brand mx-auto mb-4"></div>
+    <p class="text-gray-500 mb-12">Y también agradecemos a nuestros colaboradores su compromiso con la comunidad!</p>
+    <div class="flex flex-wrap justify-center gap-12 items-center">
+      {% for col in site.data.sponsors.collaborators %}
+      <div class="bg-section-grey rounded-xl p-6 hover:shadow-md transition-shadow">
+        <img src="{{ col.logo }}" alt="{{ col.name }}"
+             class="h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+             loading="lazy">
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

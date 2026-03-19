@@ -1,17 +1,43 @@
 # Configuración Jekyll - Global AI Spain
-title: "Global AI Spain"
-description: "La comunidad española de Inteligencia Artificial de Microsoft. Eventos, workshops y recursos sobre IA para profesionales y entusiastas."
+title: "AgentCamp 2026 - Madrid (aka Global AI Bootcamp)"
+description: "Evento anual gratuito de Inteligencia Artificial organizado por la Global AI Community en Madrid, España. 28 de Febrero de 2026."
 author: "Global AI Spain"
-email: "info@globalai.es"
+email: "staff@globalai.es"
 baseurl: ""
-url: "https://globalai.es"
+url: "https://dev.globalai.es"
+
+# Evento
+event:
+  name: "AgentCamp 2026 - Madrid"
+  subtitle: "aka Global AI Bootcamp"
+  date_conf: "2026-02-28"
+  date_workshops: "2026-02-27"
+  location_conf: "Universidad CEU San Pablo"
+  address_conf: "Av. de Montepríncipe, s/n, 28668 Boadilla del Monte, Madrid"
+  map_conf: "https://maps.app.goo.gl/HDTD7W5duxaitWWUA"
+  location_ws: "NTT DATA Spain"
+  address_ws: "Novus Building, Cam. de la Fuente de la Mora, 1, Hortaleza, 28050 Madrid"
+  map_ws: "https://maps.app.goo.gl/jabBVBQEkRQkC8e86"
+  eventbrite_conf: "https://www.eventbrite.es/e/entradas-agentcamp-2026-madrid-aka-global-ai-bootcamp-1980480271806"
+  eventbrite_ws: "https://www.eventbrite.es/e/entradas-agentcamp-2026-workshops-madrid-1981020331138"
+  sessionize_url: "https://agentcamp.sessionize.com"
+  sessionize_embed: "https://sessionize.com/api/v2/dq0w9dg6/view/GridSmart"
+  floor_plan: "https://globalai.blob.core.windows.net/plano/plano.pdf"
 
 # Redes sociales
-twitter_username: GlobalAISpain
-github_username: GlobalAISpain
-linkedin_url: "https://www.linkedin.com/company/globalai-spain"
-youtube_url: "https://www.youtube.com/@GlobalAISpain"
-meetup_url: "https://www.meetup.com/Global-AI-Spain"
+social:
+  twitter: "https://twitter.com/GaibSpain"
+  linkedin: "https://www.linkedin.com/company/global-ai-community-spain/"
+  youtube: "https://www.youtube.com/c/GlobalAISpain"
+  github: "https://github.com/GlobalAISpain"
+twitter_url: "https://twitter.com/GaibSpain"
+linkedin_url: "https://www.linkedin.com/company/global-ai-community-spain/"
+youtube_url: "https://www.youtube.com/c/GlobalAISpain"
+
+# Images (original site assets)
+banner_image: "https://www.globalai.es/media/plgl3c0z/agentcamp-graphics-2-1650-x-1150.png"
+logo_white: "https://www.globalai.es/css/images/logo-gaic-2024.svg"
+logo_dark: "https://www.globalai.es/css/images/logo-gaic-2024.svg"
 
 # Configuración del sitio
 lang: "es"
@@ -23,39 +49,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate
-
-# Paginación del blog
-paginate: 10
-paginate_path: "/blog/page:num/"
-
-# Colecciones
-collections:
-  events:
-    output: true
-    permalink: /eventos/:slug/
-  speakers:
-    output: false
-  sponsors:
-    output: false
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "Global AI Spain"
-  - scope:
-      path: ""
-      type: "events"
-    values:
-      layout: "event"
-  - scope:
-      path: "pages"
-    values:
-      layout: "page"
 
 # Excluir del build
 exclude:
@@ -66,16 +59,8 @@ exclude:
   - README.md
   - .env
 
-# Sass
-sass:
-  sass_dir: assets/css
-  style: compressed
-
 # Markdown
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-
-# SEO
-logo: "/assets/images/logo-globalai-spain.png"
